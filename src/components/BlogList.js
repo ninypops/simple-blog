@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import PostContent from './PostContent';
 
 const BlogList = () => {
@@ -15,8 +16,14 @@ const BlogList = () => {
         console.log(data, 'posts');
     };
 
+    const StyledList = styled.ul`
+        display: block;
+        list-style-type: none;
+        margin-left: 0;
+    `;
+
     return (
-        <>
+        <StyledList>
             {/* Loop through data with map method */}
              <section className="postContent">
                 { Object.values(posts.map((post, i) => (
@@ -26,7 +33,7 @@ const BlogList = () => {
                     />
                 )))}
             </section>
-        </>
+        </StyledList>
     )
 };
 

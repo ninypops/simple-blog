@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 const CommentContent = ({ postId }) => {
     const [ comments, setPostComments ] = useState([]);
@@ -12,8 +13,18 @@ const CommentContent = ({ postId }) => {
         const data = await response.json();
         setPostComments(data);
     };
+
+    const StyledComments = styled.div`
+        padding: 1rem;
+		margin-top: 1rem;
+        background: #8f9da6;
+		& div.comment {
+			padding: 1rem;
+		}
+    `;
+
     return (
-        <>
+        <StyledComments>
             Comments
             {Object.values(comments.map((comment, i) => (
                 <div key={i}>
@@ -26,7 +37,7 @@ const CommentContent = ({ postId }) => {
                     </div>
                 </div>
             )))}
-        </>
+        </StyledComments>
     )
 };
 
