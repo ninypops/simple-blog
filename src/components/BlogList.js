@@ -24,9 +24,9 @@ const BlogList = () => {
     return (
         <StyledList>
              <section className="postContent">
-                { Object.values(posts.map((post, i) => (
+                { Object.values(posts.map((post) => (
                     <PostContent
-                        key={i}
+                        key={post.id}
                         post={post}
                     />
                 )))}

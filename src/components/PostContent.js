@@ -5,6 +5,10 @@ import CommentContent from './CommentContent';
 const PostContent = ({ post }) => {
     const [ toggle, isToggled ] = useState(false);
 
+    const handleClick = () => {
+        isToggled(!toggle)
+    };
+    
     const StyledListItem = styled.li`
         padding: 1rem 0;
         border-bottom: 1px solid #8f9da6;
@@ -29,14 +33,14 @@ const PostContent = ({ post }) => {
     return (
         <StyledListItem>
             <h4
-                onClick={() => isToggled(!toggle)}
+                onClick={handleClick}
                 className='post-title'
             >
                 {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
             </h4>
             <StyledButton
                 className='btn'
-                onClick={() => isToggled(!toggle)}
+                onClick={handleClick}
             >
                 Read {toggle ? 'Less' : 'More'}
             </StyledButton>
