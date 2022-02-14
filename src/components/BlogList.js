@@ -23,7 +23,6 @@ const BlogList = () => {
 
     return (
         <StyledList>
-            {/* Loop through data with map method */}
              <section className="postContent">
                 { Object.values(posts.map((post, i) => (
                     <PostContent

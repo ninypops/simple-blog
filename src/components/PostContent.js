@@ -42,10 +42,11 @@ const PostContent = ({ post }) => {
             </StyledButton>
             {toggle && (
                 <div className="post-body">
-                {post.body}
-                <CommentContent
-                    key={post.id}
-                    postId={post.id}/>
+                    {post.body}
+                    <CommentContent
+                        key={post.id}
+                        postId={post.id}
+                    />
                 </div>
             )}
         </StyledListItem>
