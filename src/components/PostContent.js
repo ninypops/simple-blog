@@ -12,7 +12,20 @@ const PostContent = ({ post }) => {
             >
                 {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
             </h4>
-            <CommentContent />
+            <button
+                className='btn'
+                onClick={() => isToggled(!toggle)}
+            >
+                Read {toggle ? 'Less' : 'More'}
+            </button>
+            {toggle && (
+                <div className="post-body">
+                {post.body}
+                <CommentContent
+                    key={post.id}
+                    postId={post.id}/>
+                </div>
+            )}
         </>
     )
 };
