@@ -1,8 +1,9 @@
+import Blog from './components/Blog';
 
 function App() {
   return (
     <div className="App">
-      {/* Blog goes here */}
+      <Blog />
     </div>
   );
 }
