@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CommentContent from './CommentContent';
 
-const PostContent = () => {
+const PostContent = ({ post }) => {
+    const [ toggle, isToggled ] = useState(false);
 
     return (
         <>
-            Post data here
-            <br />
-            {/* Pass in props, display data */}
+            <h4
+                onClick={() => isToggled(!toggle)}
+                className='post-title'
+            >
+                {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
+            </h4>
             <CommentContent />
         </>
     )
