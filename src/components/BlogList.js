@@ -13,7 +13,6 @@ const BlogList = () => {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
         const data = await response.json();
         setPostData(data);
-        console.log(data, 'posts');
     };
 
     const StyledList = styled.ul`
