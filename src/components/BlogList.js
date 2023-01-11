@@ -2,6 +2,13 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PostContent from './PostContent';
 
+const Container = styled.div`
+    margin: 3rem 8rem;
+    @media only screen and (max-width: 900px) {
+        margin: .5rem;
+    }
+`;
+
 const BlogList = () => {
     const [ posts, setPostData ] = useState([]);
 
@@ -22,16 +29,20 @@ const BlogList = () => {
     `;
 
     return (
-        <StyledList>
-             <section className="postContent">
-                { Object.values(posts.map((post) => (
-                    <PostContent
-                        key={post.id}
-                        post={post}
-                    />
-                )))}
-            </section>
-        </StyledList>
+        <Container>
+            <h2><em>Blog Posts</em></h2>
+            <p><em>A simple blog with posts.</em></p>
+            <StyledList>
+                <section className="postContent">
+                    { Object.values(posts.map((post) => (
+                        <PostContent
+                            key={post.id}
+                            post={post}
+                        />
+                    )))}
+                </section>
+            </StyledList>
+        </Container>
     )
 };
 

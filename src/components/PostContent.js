@@ -19,11 +19,10 @@ const PostContent = ({ post }) => {
 
     const StyledButton = styled.button`
         font-weight: 700;
-        text-decoration: none;
+        text-decoration: underline;
         background: none;
         border: none;
         color: #3d97cc;
-        padding: .5rem 0;
         &:hover {
             cursor: pointer;
             color: #8f9da6;
@@ -36,22 +35,22 @@ const PostContent = ({ post }) => {
                 onClick={handleClick}
                 className='post-title'
             >
-                {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
+                <em>{post.title.charAt(0).toUpperCase() + post.title.slice(1)}</em>
             </h4>
+            <div className="post-body">
+                <em>{post.body}</em>
+            </div>
             <StyledButton
                 className='btn'
                 onClick={handleClick}
             >
-                Read {toggle ? 'Less' : 'More'}
+                <p><em>{toggle ? 'Hide' : 'Read'} Comments</em></p>
             </StyledButton>
             {toggle && (
-                <div className="post-body">
-                    {post.body}
-                    <CommentContent
-                        key={post.id}
-                        postId={post.id}
-                    />
-                </div>
+                <CommentContent
+                    key={post.id}
+                    postId={post.id}
+                />
             )}
         </StyledListItem>
     )

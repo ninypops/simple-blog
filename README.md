@@ -1,4 +1,4 @@
-# Sproutl Blog Test
+# Simple Blog Page
 
 Minimalist blog UI that displays post and comment data via fetch API.
 

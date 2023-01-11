@@ -17,22 +17,27 @@ const CommentContent = ({ postId }) => {
     const StyledComments = styled.div`
         padding: 1rem;
 		margin-top: 1rem;
-        background: #8f9da6;
+        border-top: 1px solid #000;
 		& div.comment {
 			padding: 1rem;
+            margin-top: 2rem;
+            border-left: 2px solid #ccc;
 		}
+        & h4, p {
+            margin: 0;
+        }
     `;
 
     return (
         <StyledComments>
-            Comments
+            <h3><em>Comments</em></h3>
             {Object.values(comments.map((comment, i) => (
                 <div key={i} className="comment">
-                    <strong>{comment.name.charAt(0).toUpperCase() + comment.name.slice(1)}</strong>
+                    <h4><strong><em>{comment.name.charAt(0).toUpperCase() + comment.name.slice(1)}</em></strong></h4>
                     <br />
-                    <small>{comment.email}</small>
+                    <p><em>"{comment.body}"</em></p>
                     <br />
-                    {comment.body}
+                    <p><small><em>Posted by {comment.email}</em></small></p>
                 </div>
             )))}
         </StyledComments>
