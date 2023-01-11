@@ -31,7 +31,7 @@ const BlogList = () => {
     return (
         <Container>
             <h2><em>Blog Posts</em></h2>
-            <p><em>A simple blog with posts.</em></p>
+            <p><em>A simple blog with posts delivered via fetch API.</em></p>
             <StyledList>
                 <section className="postContent">
                     { Object.values(posts.map((post) => (
