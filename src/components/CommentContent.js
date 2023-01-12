@@ -4,15 +4,15 @@ import styled from 'styled-components';
 const CommentContent = ({ postId }) => {
     const [ comments, setPostComments ] = useState([]);
 
-    useEffect(() => {
+    useEffect((postId) => {
+        const loadPostComments = async () => {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
+            const data = await response.json();
+            setPostComments(data);
+        };
+
         loadPostComments();
     }, []);
-
-    const loadPostComments = async () => {
-        const response = await fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
-        const data = await response.json();
-        setPostComments(data);
-    };
 
     const StyledComments = styled.div`
         padding: 1rem;
